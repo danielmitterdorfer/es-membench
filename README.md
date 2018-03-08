@@ -16,7 +16,7 @@ ln -s $(pwd)/rally/rally /usr/local/bin/rally
 rally configure
 
 # Install es-membench
-git clone https://github.com/elastic/rally.git
+git clone https://github.com/danielmitterdorfer/es-membench.git
 ```
 
 Usage
