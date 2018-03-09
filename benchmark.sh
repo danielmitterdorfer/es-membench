@@ -46,8 +46,6 @@ done
 # TODO: Vary track / challenge (i.e. what about query benchmarks?)
 
 # on-error=abort: this ensures we will not continue when an error has happened (e.g. node out of memory)
-
-# sometimes it might make sense to skip the build?
 rally --track="geonames" \
       --challenge="append-no-conflicts-index-only" \
       --team-path="${SCRIPT_SRC_HOME}/es-config" \
