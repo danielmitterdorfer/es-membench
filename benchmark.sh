@@ -18,10 +18,8 @@ SCRIPT_SRC_HOME="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 # allow to set these parameters explicitly (although we could do this also directly, this is a bit more convenient)
 HEAP_SIZE="1g"
-CLIENTS="8"
 PIPELINE="from-sources"
 
-# TODO: We need to be able to vary index settings as well
 for i in "$@"
 do
 case ${i} in
@@ -31,10 +29,6 @@ case ${i} in
     ;;
     --heap=*)
     HEAP_SIZE="${i#*=}"
-    shift # past argument=value
-    ;;
-    --clients=*)
-    CLIENTS="${i#*=}"
     shift # past argument=value
     ;;
     # Do not consume unknown parameters?
@@ -54,4 +48,4 @@ rally --track="geonames" \
       --revision="current" \
       --pipeline="${PIPELINE}" \
       --car-params="heap_size:'${HEAP_SIZE}'" \
-      --track-params="bulk_indexing_clients:${CLIENTS}"
+      --track-params="${SCRIPT_SRC_HOME}/track-params.json"

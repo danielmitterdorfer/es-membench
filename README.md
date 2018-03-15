@@ -31,10 +31,11 @@ Run a benchmark with:
 Available command line parameters:
 
 * `--heap="HEAP_SIZE"`: heap size for Elasticsearch. The default is `1g`.
-* `--clients="CLIENTS"`: Number of indexing clients. The default is `8`.
 * `--skip-build`: Allows to skip the build. The default is to build Elasticsearch every time.
 
 You can adapt the Elasticsearch configuration in `es-config/cars/config`.
+
+You can change track-related settings (like index settings) by modifying `track-params.json`.
 
 In case of an `OutOfMemoryError`, heap dumps are stored in `~/.rally/benchmarks/races/RACE_TIMESTAMP/rally-node-0/heapdump`.
 

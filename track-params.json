@@ -1,0 +1,6 @@
+{
+  "bulk_indexing_clients": 8,
+  "index_settings": {
+    "index.number_of_replicas": 0
+  }
+}
