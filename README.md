@@ -7,7 +7,7 @@ Installation
 ------------
 
 ```
-# Install Rally - do this in the directory *next* to your Elasticseach checkout. This allows you 
+# Install Rally - do this in the directory *next* to your Elasticsearch checkout. This allows you
 # to make local changes to Elasticsearch and directly benchmark them.
 git clone https://github.com/elastic/rally.git
 # make the 'rally' alias callable system-wide
@@ -32,6 +32,7 @@ Available command line parameters:
 
 * `--heap="HEAP_SIZE"`: heap size for Elasticsearch. The default is `1g`.
 * `--skip-build`: Allows to skip the build. The default is to build Elasticsearch every time.
+* `--profile`: Enables Java flight recorder with allocation profiling capabilities (requires an Oracle JDK).
 
 You can adapt the Elasticsearch configuration in `es-config/cars/config`.
 

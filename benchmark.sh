@@ -19,12 +19,18 @@ SCRIPT_SRC_HOME="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 # allow to set these parameters explicitly (although we could do this also directly, this is a bit more convenient)
 HEAP_SIZE="1g"
 PIPELINE="from-sources"
+TELEMETRY_OPTS=""
 
 for i in "$@"
 do
 case ${i} in
     --skip-build)
     PIPELINE="from-sources-skip-build"
+    shift # past argument with no value
+    ;;
+    --profile)
+    # the 'profile' template is included by default and also does allocation profiling.
+    TELEMETRY="--telemetry=jfr --telemetry-params=\"recording-template:'profile'\""
     shift # past argument with no value
     ;;
     --heap=*)
@@ -48,4 +54,5 @@ rally --track="geonames" \
       --revision="current" \
       --pipeline="${PIPELINE}" \
       --car-params="heap_size:'${HEAP_SIZE}'" \
-      --track-params="${SCRIPT_SRC_HOME}/track-params.json"
+      --track-params="${SCRIPT_SRC_HOME}/track-params.json" \
+      ${TELEMETRY_OPTS}
