@@ -42,8 +42,7 @@ In case of an `OutOfMemoryError`, heap dumps are stored in `~/.rally/benchmarks/
 Caveats
 -------
 
-* Building Elasticsearch with Rally still requires Gradle instead of the Gradle Wrapper (see [elastic/rally#412](https://github.com/elastic/rally/issues/412))
-* Benchmarks are run only locally. As the focus of these benchmarks is rather measuring memory usage instead of getting very accurate performance metrics this is not a major problem. However, analysis on the network layer should not be done locally. Therefore, we recommend to use at least two separate machines for these benchmarks. Also use Rally directly in this case instead of relying on the wrapper script. 
+* Benchmarks are run only locally. As the focus of these benchmarks is rather measuring memory usage instead of getting very accurate performance metrics this is not a major problem. However, analysis on the network layer should not be done locally. Therefore, we recommend to use at least two separate machines for these benchmarks. Also use Rally directly in this case instead of relying on the wrapper script.
 
 License
 -------
