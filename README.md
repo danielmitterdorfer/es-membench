@@ -30,7 +30,8 @@ Run a benchmark with:
 
 Available command line parameters:
 
-* `--heap="HEAP_SIZE"`: heap size for Elasticsearch. The default is `1g`.
+* `--track="TRACK"`: Rally track to run. The default is `geonames`.
+* `--challenge="CHALLENGE"`: Challenge to run. The default is `append-no-conflicts-index-only`.
 * `--skip-build`: Allows to skip the build. The default is to build Elasticsearch every time.
 * `--profile`: Enables Java flight recorder with allocation profiling capabilities (requires an Oracle JDK).
 

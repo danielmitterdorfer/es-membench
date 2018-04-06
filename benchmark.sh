@@ -20,6 +20,8 @@ SCRIPT_SRC_HOME="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 HEAP_SIZE="1g"
 PIPELINE="from-sources"
 TELEMETRY_OPTS=""
+TRACK="geonames"
+CHALLENGE="append-no-conflicts-index-only"
 
 for i in "$@"
 do
@@ -33,6 +35,14 @@ case ${i} in
     TELEMETRY="--telemetry=jfr --telemetry-params=\"recording-template:'profile'\""
     shift # past argument with no value
     ;;
+    --track=*)
+    TRACK="${i#*=}"
+    shift # past argument=value
+    ;;
+    --challenge=*)
+    CHALLENGE="${i#*=}"
+    shift # past argument=value
+    ;;
     --heap=*)
     HEAP_SIZE="${i#*=}"
     shift # past argument=value
@@ -43,11 +53,9 @@ esac
 done
 
 
-# TODO: Vary track / challenge (i.e. what about query benchmarks?)
-
 # on-error=abort: this ensures we will not continue when an error has happened (e.g. node out of memory)
-rally --track="geonames" \
-      --challenge="append-no-conflicts-index-only" \
+rally --track="${TRACK}" \
+      --challenge="${CHALLENGE}" \
       --team-path="${SCRIPT_SRC_HOME}/es-config" \
       --car="defaults" \
       --on-error="abort" \
